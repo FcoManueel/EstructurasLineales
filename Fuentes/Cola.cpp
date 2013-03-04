@@ -19,7 +19,7 @@ Cola::~Cola()
   aux = inicio;
   while( aux ){
     anterior = aux;
-    aux = aux->obtenerConexion();
+    aux = aux->get_siguiente();
     delete anterior;
   }
   longitud = 0;
@@ -29,7 +29,7 @@ Cola::~Cola()
 /* Crea un nodo sencillo con dato igual al valor dado e inserta el nodo
  * al final de la cola. Aumenta el valor numérico de la longitud en 1.
  */
-void  Cola::meter(int a)
+void  Cola::push(int a)
 
 {
   NodoSencillo *aux;
@@ -38,7 +38,7 @@ void  Cola::meter(int a)
     inicio = aux;
     final = aux;
   }else{
-    final->conectarA(aux);
+    final->set_siguiente(aux);
     final = aux;
   }
   ++longitud;
@@ -48,15 +48,15 @@ void  Cola::meter(int a)
  * inicio. De lo contrario se manda un error de underflow. Regresa el valor
  * del dato del nodo sencillo removido.
  */
-int Cola::sacar()
+int Cola::pop()
 {
   NodoSencillo *aux;
   int valor;
   if(!inicio)
     throw std::underflow_error("underflow en la Cola");
   aux = inicio;
-  inicio = aux->obtenerConexion();
-  valor = aux->obtenerValor();
+  inicio = aux->get_siguiente();
+  valor = aux->get_valor();
   delete aux;
   --longitud;
   return valor;
@@ -70,8 +70,8 @@ void Cola::pintar()
   aux = inicio;
   std::cout<<"Cola]";
   while( aux ){
-    std::cout<<"-["<<aux->obtenerValor()<<"]";
-    aux = aux->obtenerConexion();
+    std::cout<<"-["<<aux->get_valor()<<"]";
+    aux = aux->get_siguiente();
   }
   std::cout<<"-[NULL]\n";
 }
@@ -79,7 +79,7 @@ void Cola::pintar()
 /* Regresa un entero no negativo cuyo valor es el numero de elementos
  * en la cola.
  */
-int Cola::obtenerLongitud()
+int Cola::get_longitud()
 {
   return longitud;
 }

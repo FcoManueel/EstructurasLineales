@@ -24,10 +24,10 @@ class Cola {
   Cola();
   ~Cola();
 
-  void  meter(int a);
-  int sacar();
+  void  push(int a);
+  int pop();
   void pintar();
-  int obtenerLongitud();
+  int get_longitud();
 };
 
 #endif  //  COLA_H_

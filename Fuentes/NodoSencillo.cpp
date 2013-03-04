@@ -17,7 +17,7 @@ NodoSencillo::~NodoSencillo()
 }
 
 /* Le asigna al atributo valor un número entero dado por la variable v. */
-void NodoSencillo::fijarValor(int v)
+void NodoSencillo::set_valor(int v)
 {
   valor = v;
 }
@@ -25,19 +25,19 @@ void NodoSencillo::fijarValor(int v)
 /* Enlaza el nodo sencillo a otro nodo alojado en la dirección a la que
  * apunta s.
  */
-void NodoSencillo::conectarA(NodoSencillo *s)
+void NodoSencillo::set_siguiente(NodoSencillo *s)
 {
   siguiente = s;
 }
 
 /* Regresa un entero dado por el atributo valor. */
-int NodoSencillo::obtenerValor()
+int NodoSencillo::get_valor()
 {
   return valor;
 }
 
 /* Regresa un apuntador a nodo sencillo dado por el atributo siguiente. */
-NodoSencillo* NodoSencillo::obtenerConexion()
+NodoSencillo* NodoSencillo::get_siguiente()
 {
   return siguiente;
 }

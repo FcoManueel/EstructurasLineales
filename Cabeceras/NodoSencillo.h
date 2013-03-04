@@ -18,10 +18,10 @@ class NodoSencillo {
 	NodoSencillo(int v, NodoSencillo * s);
 	~NodoSencillo();
 
-	void fijarValor(int v);
-	void conectarA(NodoSencillo * s);
-	int obtenerValor();
-	NodoSencillo * obtenerConexion();
+	void set_valor(int v);
+	void set_siguiente(NodoSencillo * s);
+	int get_valor();
+	NodoSencillo * get_siguiente();
 };
 
 #endif	//	NODOSENCILLO_H_

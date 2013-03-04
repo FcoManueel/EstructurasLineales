@@ -1,6 +1,6 @@
-/* Este es el codigo del programa utilizado para probar las estructuras 
+/* Este es el codigo del programa utilizado para probar las estructuras
  * implementadas en la clase de Estructuras de Datos.
- * 
+ *
  * los comentarios en el codigo funcionan como tutorial para expandir el
  * programa a otras estructuras.
  *
@@ -32,7 +32,7 @@ void sub_Cola();
 void sub_ListaOrdenadaSinRepeticion();
 
 // Para agregar una estructura al programa se siguen los siguientes pasos:
-// 
+//
 // *   = Modifica la cadena que se imprime en pantalla para que muestre
 //       el rango correcto.
 // **  = Modifica las condiciones del while para aceptar valores dentro
@@ -49,14 +49,14 @@ int main()
     std::cout<<"INGRESA UN NUMERO DEL [0 - 2] "; // *
     std::cin>>programa;
   }while( programa<0 || programa>2 ); // **
-  
+
   switch(programa){ // ***
   case pila:
     sub_Pila();
     break;
   case cola:
     sub_Cola();
-    break; 
+    break;
   case lista_ordenada_sr:
     sub_ListaOrdenadaSinRepeticion();
     break;
@@ -83,7 +83,7 @@ int main()
 // std::cout<<"+ [-1] SALIR\n\n";
 //
 // Crea nueva estructura
-// 
+//
 // Inicia un ciclo do con condicion de parado (op!=-1) que es la opcion salir
 // Dentro de este ciclo do, se pinta el estado inicial de la estructura y se
 // captura de consola la operación a realizar.
@@ -96,7 +96,7 @@ void sub_Pila()
   std::string blank (10, '\n');
   std::cout<<blank;
   std::cout<<"PROG (PILA)\n\n";
-  std::cout<<"tienes una pila vacía. Puedes realizar diversas operaciones sobre ella\n";
+  std::cout<<"Tienes una pila vac"<<char(161)<<"a. Puedes realizar diversas operaciones sobre ella\n";
   std::cout<<"+ OPERACIONES\n";
   std::cout<<"|- [0] METER\n";
   std::cout<<"|- [1] SACAR\n";
@@ -114,18 +114,18 @@ void sub_Pila()
     case 0:
       std::cout<<"DATO ";
       std::cin>>resp;
-      mi_pila->meter(resp);
+      mi_pila->push(resp);
       break;
     case 1:
       try{
-        resp = mi_pila->sacar();
+        resp = mi_pila->pop();
         std::cout<<"SALE {"<<resp<<"}\n";
       }catch( std::underflow_error& e ){
         std::cerr << "Error: " << e.what( ) << "\n";
       }
       break;
     case 2:
-      std::cout<<"CANT "<<mi_pila->obtenerLongitud()<<"\n";
+      std::cout<<"CANT "<<mi_pila->get_longitud()<<"\n";
       break;
     case 9:
       delete mi_pila;
@@ -134,7 +134,7 @@ void sub_Pila()
     case -1:
       std::cout<<"\nPROGRAMA TERMINADO\n\n";
     }
-  }while(op!=-1);  
+  }while(op!=-1);
 }
 void sub_Cola()
 {
@@ -142,7 +142,7 @@ void sub_Cola()
   std::string blank (10, '\n');
   std::cout<<blank;
   std::cout<<"PROG (COLA)\n\n";
-  std::cout<<"tienes una cola vacía. Puedes realizar diversas operaciones sobre ella\n";
+  std::cout<<"Tienes una cola vac"<<char(161)<<"a. Puedes realizar diversas operaciones sobre ella\n";
   std::cout<<"+ OPERACIONES\n";
   std::cout<<"|- [0] METER\n";
   std::cout<<"|- [1] SACAR\n";
@@ -160,19 +160,19 @@ void sub_Cola()
     case 0:
       std::cout<<"KEY ";
       std::cin>>resp;
-      mi_cola->meter(resp);
+      mi_cola->push(resp);
       std::cin.get();
       break;
     case 1:
       try{
-        resp = mi_cola->sacar();
+        resp = mi_cola->pop();
         std::cout<<"SALE {"<<resp<<"}\n";
       }catch( std::underflow_error& e ){
         std::cerr << "Error: " << e.what( ) << "\n";
       }
       break;
     case 2:
-      std::cout<<"CANT "<<mi_cola->obtenerLongitud()<<"\n";
+      std::cout<<"CANT "<<mi_cola->get_longitud()<<"\n";
       break;
     case 9:
       delete mi_cola;
@@ -190,7 +190,7 @@ void sub_ListaOrdenadaSinRepeticion()
   std::string blank (10, '\n');
   std::cout<<blank;
   std::cout<<"PROG (LISTA ORDENADA SIN REPETICION)\n\n";
-  std::cout<<"tienes una lista vacía. Puedes realizar diversas operaciones sobre ella\n";
+  std::cout<<"Tienes una lista vac"<<char(161)<<"a. Puedes realizar diversas operaciones sobre ella\n";
   std::cout<<"+ OPERACIONES\n";
   std::cout<<"|- [0] INSERTAR\n";
   std::cout<<"|- [1] REMOVER\n";
@@ -218,14 +218,14 @@ void sub_ListaOrdenadaSinRepeticion()
       break;
     case 2:
       try{
-      	resp = mi_lista->sacarNodo();
+      	resp = mi_lista->pop();
       	std::cout<<"NODO {"<<resp<<"}\n";
       }catch(std::underflow_error& e){
       	std::cerr << "Error: " << e.what( ) << "\n";
       }
       break;
     case 3:
-      std::cout<<"CANT "<<mi_lista->obtenerLongitud()<<"\n";
+      std::cout<<"CANT "<<mi_lista->get_longitud()<<"\n";
       break;
     case 9:
       delete mi_lista;

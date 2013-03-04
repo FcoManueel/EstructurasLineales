@@ -22,10 +22,10 @@
  	Pila();
  	~Pila();
 
- 	void meter(int valor);
- 	int sacar();
+ 	void push(int valor);
+ 	int pop();
  	void pintar();
- 	int obtenerLongitud();
+ 	int get_longitud();
  };
 
 #endif	//	PILA_H_
