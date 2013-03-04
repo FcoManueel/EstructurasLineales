@@ -69,7 +69,9 @@ bool ListaOrdenadaSinRepeticion::remover(int v)
 {
   NodoSencillo *aux, *anterior;
   anterior = buscar(v);
-  if(!(anterior->obtenerConexion()))
+  if(!(anterior->obtenerConexion())) //***
+    return false;
+  if((anterior->obtenerConexion())->obtenerValor() != v) //***
     return false;
   aux = anterior->obtenerConexion();
   anterior->conectarA(aux->obtenerConexion());
